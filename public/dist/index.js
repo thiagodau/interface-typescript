@@ -32,3 +32,37 @@ async function fetchRepos(username) {
         console.log(message);
     }
 }
+function getAllUsers() {
+    let message = 'Usuários: \n';
+    users.forEach((user) => {
+        message += `Nome: ${user.name} \n` +
+            `Login: ${user.login} \n` +
+            `-----------------------------\n`;
+    });
+    console.log(message);
+}
+function showReposTotal() {
+    const reposTotal = users.reduce((acc, user) => acc + user.public_repos, 0);
+    console.log(`O grupo possui um total de ${reposTotal} repositorios públicos.`);
+}
+function showTopFive() {
+    const topFive = users.slice().sort((a, b) => b.public_repos - a.public_repos).slice(0, 5);
+    let message = 'Top 5 Usuários com mais Repositórios Públicos: \n';
+    topFive.forEach((user, index) => {
+        message += `${index + 1} - ${user.login}: ${user.public_repos} Repositórios Públicos \n` +
+            `-----------------------------\n`;
+    });
+    console.log(message);
+}
+async function main() {
+    await fetchUser('thiagodau');
+    await fetchUser('isaacpontes');
+    await fetchUser('pcaldass');
+    await fetchUser('julianaconde');
+    await fetchRepos('thiagodau');
+    await fetchRepos('isaacpontes');
+    getAllUsers();
+    showReposTotal();
+    showTopFive();
+}
+main();
