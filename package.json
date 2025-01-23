@@ -1,0 +1,15 @@
+{
+  "name": "interface-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc --watch"
+  },
+  "keywords": [],
+  "author": "thiagodau",
+  "license": "ISC",
+  "description": "Curso Fullstack on Onbitcode, criando interface com typescript e consumindo api do github.",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
